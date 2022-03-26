@@ -1,9 +1,6 @@
-// var js = JSON.parse(json);Pass string in json
-
 const language = "language";
 const programmingLanguageToSearchFor = "Java";
-
-// console.log(allRepoResultsForLanguage);
+const usernameToLookup = "syedumerahmedcode";
 
 function httpGet(theUrl) {
   let xmlHttpReq = new XMLHttpRequest();
@@ -11,13 +8,9 @@ function httpGet(theUrl) {
   xmlHttpReq.send(null);
   return xmlHttpReq.responseText;
 }
-// console.log(httpGet("https://api.github.com/users/syedumerahmedcode/repos"));
-// console.log(getRequest());
-const reposAsJSON = JSON.parse(
-  httpGet("https://api.github.com/users/syedumerahmedcode/repos")
-);
-// const reposAsJSON = JSON.parse(json);
-// console.log(reposAsJSON);
+const repoOfUserToLookupForAnalysis =
+  "https://api.github.com/users/" + usernameToLookup + "/repos";
+const reposAsJSON = JSON.parse(httpGet(repoOfUserToLookupForAnalysis));
 
 const reposWithSpecificLanguage = reposAsJSON.filter(function (repo) {
   console.log("##########################################");
